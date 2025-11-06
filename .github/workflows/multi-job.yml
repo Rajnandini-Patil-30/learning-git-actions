@@ -52,7 +52,7 @@ jobs:
         run: ./main
   job4:
     runs-on: ubuntu-latest
-    needs: [ubuntu, windows, macos]
+    needs: [job1, job2, job3]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -68,7 +68,3 @@ jobs:
           GOOS=linux GOARCH=amd64 go build -o main-linux main.go
           GOOS=windows GOARCH=amd64 go build -o main-windows.exe main.go
           GOOS=darwin GOARCH=amd64 go build -o main-macos-intel main.go
-    needs:
-      -job1
-      -job2
-      -job3

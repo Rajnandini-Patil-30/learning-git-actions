@@ -70,4 +70,7 @@ jobs:
           GOOS=darwin GOARCH=amd64 go build -o main-macos-intel main.go
       - name: AWS Sustainability Scanner GitHub Action
         uses: aws-actions/sustainability-scanner@v1
+        with: 
+          aws-region: $({secrets.AWS_REGION})
         
+
